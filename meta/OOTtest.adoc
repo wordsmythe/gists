@@ -3,6 +3,9 @@
 :author: Erik Hanson
 :twitter: @erik_a_hanson
 
+https://github.com/wordsmythe/gists/edit/master/meta/OOTtest.adoc[Git adoc]
+http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fmeta%2FOOTtest.adoc[run it]
+
 :areas
 
 //setup
