@@ -1,0 +1,249 @@
+= GraphGist for Zelda Ocarina of Time
+
+:author: Erik Hanson
+:twitter: @erik_a_hanson
+
+:areas
+
+//setup
+//output
+[source,cypher]
+----
+CREATE 
+( DeathMountain:area { name:'Death Mountain' }),
+( GerudoValley:area { name:'Gerudo Valley' }),
+( HyruleCastle:area { name:'Hyrule Castle' }),
+( HyruleField:area { name:'Hyrule Field' }),
+( HyruleMarket:area { name:'Hyrule Market' }),
+( KokiriForest:area { name:'Kokiri Forest' }),
+( LakeHylia:area { name:'Lake Hylia' }),
+( LonLonRanch:area { name:'Lon Lon ranch' }),
+( LostWoods:area { name:'Lost Woods' }),
+( ZorasDomain:area { name:'Zora\'s Domain' }),
+( DeathMountainCrater:area { name:'Death Mountain Crater' }),
+( DeathMountainTrail:area { name:'Death Mountain Trail' }),
+( DekuTree:area { name:'Deku Tree' }),
+( DesertColossus:area { name:'Desert Colossus' }),
+( DondongosCavern:area { name:'Dodongo\'s Cavern' }),
+( FireTemple:area { name:'Fire Temple' }),
+( ForestTemple:area { name:'Forest Temple' }),
+( GanonsCastle:area { name:'Ganon\'s Temple' }),
+( GerudoFortress:area { name:'Gerudo Fortress' }),
+( GoronCity:area { name:'Goron City' }),
+( HauntedWasteland:area { name:'Haunted Wasteland' }),
+( IceCavern:area { name:'Ice Cavern' }),
+( JabuJabusBelly:area { name:'Jabu Jabu\'s Belly' }),
+( KakarikoVillage:area { name:'Kakariko Village' }),
+( KakarikoGraveyard:area { name:'Kakariko Graveyard' }),
+( LakeHyliaLaboratory:area { name:'Lake Hylia Laboratory' }),
+( SacredForestMeadow:area { name:'Sacred Forest Meadow' }),
+( ShadowTemple:area { name:'Shadow Temple' }),
+( SpiritTemple:area { name:'Spirit Temple' }),
+( WaterTemple:area { name:'Water Temple' }),
+( Well:area { name:'Well' }),
+( ZorasFountain:area { name:'Zora\'s Fountain' }),
+( ZorasRiver:area { name:'Zora\'s River' }),
+(LinksHouse:building { name:'Link\'s House' }),
+(HouseOfMido:building { name:'House of Mido' })
+RETURN n.area
+----
+
+==NOTE= DUNGEONS and BUILDINGS?
+
+ 
+
++Actors+
+[source,cypher]
+----
+CREATE (Ganondorf:actor { name:'Ganondorf' }),
+(Link:actor {youngLink|adultLink}
+----
++Items+
+
+[source,cypher]
+----
+CREATE
+(KokiriSword:sword { name:'Kokiri Sword' }),
+(DekuShield:shield { name:'Deku Shield' }),
+(heartPieces:collectable { name:'Heart Pieces' }),
+----
+
++bombs+
+ironBoots
+:magicBeans
+==pocketEgg KarkarikoVillage+
+==cojiro KakarikoVillage+
+==oddMushroom LostWoods+
+==oddPotion KakarikoVillage+
+==poachersSaw LostWoods+
+==brokenGoronsSword GerudoValley+
+==prescription DeathMountain+
+==eyeballFrog ZorasDomain+
+==worldsFinestEyeDrops LakeHyliaLaboratory+
+==claimCheck DeathMountain+
+==BiggoronsSword DeathMountain+
+
+
+==magic
+[source,cypher]
+----
+CREATE
+( spinSlash:magic { name: "Spin-Slash"}),
+( DinsFire:magic { name: "Din's Fire"}),
+( FaroresWind:magic { name: "Farore's Wind"}),
+( NayrusLove:magic { name: "Naryu's Love"}),
+----
+==masks
+
+[source,cypher]
+----
+CREATE
+( keatonMask:mask { name: 'Keaton Mask'}),
+( skullMask:mask { name: 'Skull Mask'}),
+( spookyMask:mask { name: 'Spooky Mask'}),
+( bunnyHood:mask { name: 'Bunny Hood'}),
+( maskOfTruth:mask { name: 'Mask of Truth'}),
+( ZoraMask:mask { name: 'Zora Mask'}),
+( GoronMask:mask { name: 'Goron Mask'}),
+( GerudoMask:mask { name: 'Gerudo Mask'})
+----
+
+
+[source,cypher]
+----
+==Songs
+CREATE ( SunsSong:song { name:"Sun's Song" }),
+( EponasSong:song { name:"Epona's Song" }),
+( SariasSong:song { name:"Saria's Song" }),
+( ZeldasLullabyeg:song { name:"Zelda's Lullabye" }),
+( SunsSong:song { name:"Sun's Song" }),
+( ScarecrowSong:song { name:'Scarecrow Song' }), 
+(ScarecrowSong)-[FOUND_IN]->(LakeHylia)
+----
+
+[source,cypher]
+----
+==Relationships
+CREATE 
+(LonLonRanch)-[:CONNECTS_TO]->(hyruleField),
+(LakeHylia)-[:CONNECTS_TO]->(HyruleField),
+(DeathMountainTrail)-[:CONNECTS_TO]->(kakarikoVillage),
+(DeathMountainTrail)-[:CONNECTS_TO]->(DodongosCave),
+(KakarikoVillage)-[:CONNECTS_TO]->(DeathMountainTrail),
+(GoronCity)-[:CONNECTS_TO]->(DeathMountainTrail),
+(GoronCity)-[:CONNECTS_TO]->(DeathMountainCrater),
+(DeathMountainCrater)-[:CONNECTS_TO]->(FireTemple),
+(GerudoValley)-[:CONNECTS_TO]->(LakeHylia),
+(GerudoValley)-[:CONNECTS_TO]->(HyruleField),
+(KokiriForest)-[:CONNECTS_TO]->(HyruleField),
+(KokiriForest)-[:CONNECTS_TO]->(LostWoods),
+(HyruleMarket)-[:CONNECTS_TO]->(HyruleCastle),
+(HyruleMarket)-[:CONNECTS_TO]->(TempleOfTime),
+(HyruleField)-[:CONNECTS_TO]->(HyruleMarket),
+(HyruleField)-[:CONNECTS_TO]->(GerudoValley),
+(HyruleField)-[:CONNECTS_TO]->(LonLonRanch),
+(HyruleField)-[:CONNECTS_TO]->(LakeHylia),
+(HyruleField)-[:CONNECTS_TO]->(Zorasdomain),
+(HyruleField)-[:CONNECTS_TO]->(KokiriForest),
+(ZorasDomain)-[:CONNECTS_TO]->(HyruleField),
+(HyruleCastle)-[:CONNECTS_TO]->(HyruleMarket),
+(HyruleCastle)-[:CONNECTS_TO]->(DeathMountain),
+(LostWoods)-[:CONNECTS_TO]->(KokiriForest);
+(KakarikoGraveyard)-[:CONNECTS_TO]->(KakarikoVillage),
+(Well)-[:CONNECTS_TO]->(KakarikoVillage),
+(KakarikoVillage)-[:CONNECTS_TO]->(KakarikoGraveyard),
+(KakarikoVillage)-[:CONNECTS_TO]->(Well),
+----
+
+===DeathMountainCrater 
+==DeathMountainTrail
+==DekuTree
+==DesertColossus
+==DondongosCavern http=//www.zeldadungeon.net/wiki/Dodongo%27s_Cavern
+==FireTemple http=//www.zeldadungeon.net/wiki/Fire_Temple_(Ocarina_of_Time)
+==ForestTemple http=//www.zeldadungeon.net/wiki/Forest_Temple_(Ocarina_of_Time)
+==GanonsCastle
+==GerudoFortress
+==GoronCity
+==HauntedWasteland
+==IceCavern
+==JabuJabusBelly http=//www.zeldadungeon.net/wiki/Inside_Jabu-Jabu%27s_Belly
+==KakarikoVillage
+==KakarikoGraveyard
+==LakeHyliaLaboratory
+==SacredForestMeadow
+==ShadowTemple http=//www.zeldadungeon.net/wiki/Shadow_Temple
+==SpiritTemple http=//www.zeldadungeon.net/wiki/Spirit_Temple
+==WaterTemple http=//www.zeldadungeon.net/wiki/Water_Temple
+==Well 
+==ZorasFountain
+==ZorasRiver
+
+==http=//www.zeldadungeon.net/wiki/The_Legend_of_Zelda=_Ocarina_of_Time
+==http=//zeldadungeon.net/forum/showthread.php?t=36467
+==http=//www.zeldadungeon.net/Zelda05-ocarina-of-time-walkthrough-07.php
+==http=//zeldawiki.org/Hyrule_Castle_Town#Ocarina_of_Time
+==http=//zelda.wikia.com/wiki/Hyrule_Castle_Town
+==http=//www.zeldalegends.net/index.php?n=oot
+==http=//zeldawiki.org/The_Legend_of_Zelda=_Ocarina_of_Time
+
+
+
+
+[source,cypher]
+----
+CREATE 
+(KokiriSword)-[:FOUND_IN]->(KokiriForest),
+(heartPieces)-[:FOUND_IN {req: {bomb}}]->(HyruleField), 
+(heartPieces)-[:FOUND_IN {req: {bomb},{ironBoots},{adultLink}}]->(HyruleField), 
+(heartPieces)-[:FOUND_IN {req: {youngLink},{fairyOcarina}]->(LostWoods), 
+(heartPieces)-[:FOUND_IN {req: {youngLink},{fairyOcarina}]->(LostWoods), 
+(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(HyruleMarket), 
+(heartPieces)-[:FOUND_IN {req: {30rupees}}]->(HyruleMarket), 
+(heartPieces)-[:FOUND_IN {req: {10rupees}}]->(HyruleMarket), 
+(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(LonLonRanch), 
+(heartPieces)-[:FOUND_IN]->(KakarikoVillage), 
+(heartPieces)-[:FOUND_IN {req: {adultLink}}]->(KakarikoVillage), 
+(heartPieces)-[:FOUND_IN]->(KakarikoVillage), 
+(heartPieces)-[:FOUND_IN {req: {adultLink},{hookshot}}]->(KakarikoVillage), 
+(heartPieces)-[:FOUND_IN {req: {fairyOcarina}}]->(KakarikoGraveyard), 
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(KakarikoGraveyard), 
+(heartPieces)-[:FOUND_IN {req: {youngLink},{magicBeans}}]->(KakarikoGraveyard), 
+(heartPieces)-[:FOUND_IN {req: {adultLink}}]->(KakarikoGraveyard), 
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DeathMountainTrail), 
+(heartPieces)-[:FOUND_IN {req: {youngLink},{bomb}}]->(GoronCity), 
+(heartPieces)-[:FOUND_IN]->(DeathMountainCrater), 
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DeathMountainCrater), 
+(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(ZorasRiver), 
+(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(ZorasRiver), 
+(heartPieces)-[:FOUND_IN {req: {youngLink},{ocarinaOfTime}}]->(ZorasRiver), 
+(heartPieces)-[:FOUND_IN {req: {youngLink},{ocarinaOfTime}}]->(ZorasRiver), 
+(heartPieces)-[:FOUND_IN {req: {youngLink},{DekuStick}}]->(ZorasDomain), 
+(heartPieces)-[:FOUND_IN {req: {adultLink}}]->(ZorasFountain), 
+(heartPieces)-[:FOUND_IN {req: {adultLink},{ironBoots}}]->(ZorasFountain), 
+(heartPieces)-[:FOUND_IN {req: {youngLink}{20rupees}}]->(LakeHylia), 
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(LakeHylia), 
+(heartPieces)-[:FOUND_IN {req: {youngLink|goldScale}}]->(LakeHylia), 
+(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(GerudoValley), 
+(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(GerudoValley), 
+(heartPieces)-[:FOUND_IN {req: {adultLink},{longshot|ocarinaOfTime}}]->(GerudoFortress), 
+(heartPieces)-[:FOUND_IN {req: {Epona},{adultLink}}]->(GerudoFortress), 
+(heartPieces)-[:FOUND_IN {req: {adultLink},{emptyBottle|blueFire}}]->(IceCavern), 
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DesertColossus),
+(spinSlash )-[:FOUND_IN {req: {bomb}}]->(DeathMountain), 
+(DinsFire)-[:FOUND_IN {req: {bomb}}]->(HyruleCastle), 
+(FaroresWind)-[:FOUND_IN {req: {bomb}}]->(ZorasFountain), 
+(NayrusLove)-[:FOUND_IN {req: {bomb}}]->(DesertColossus)
+----
+[source,cypher]
+----
+//console
+//graph
+//table
+----
+
+(GoldSkulltula)-[:FOUND_IN]->(), http=//www.gamefaqs.com/n64/197771-the-legend-of-zelda-ocarina-of-time/faqs/3514
+
+Each query has a green or red button to indicate if the query was successful or not.
+The console is set up after the executions, with an empty database, for the reader to play around with the queries.
+
