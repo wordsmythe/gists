@@ -119,7 +119,7 @@ CREATE ( SunsSong:song { name:"Sun's Song" }),
 ( EponasSong:song { name:"Epona's Song" }),
 ( SariasSong:song { name:"Saria's Song" }),
 ( ZeldasLullabyeg:song { name:"Zelda's Lullabye" }),
-( ScarecrowSong:song { name:'Scarecrow Song' }), 
+( ScarecrowSong:song { name:'Scarecrow Song' })
 ----
 
 ==Relationships
