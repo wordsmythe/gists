@@ -16,14 +16,8 @@ http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fmeta%2FOOTtest.adoc[run it
 +Actors+
 [source,cypher]
 ----
-CREATE (Ganondorf:actor { name:'Ganondorf' }),
-(Link:actor {name:'Link'})
-----
-
-[source,cypher]
-----
-SET 1.type = {boss},
-2.type = {PC}
+CREATE (Ganondorf:actor { type:boss }),
+(Link:actor {type:playerCharacter})
 ----
 
 
