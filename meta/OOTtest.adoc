@@ -58,8 +58,8 @@ CREATE
 +Actors+
 [source,cypher]
 ----
-CREATE (Ganondorf:actor { name:'Ganondorf' }, {type:boss}),
-(Link:actor {name:Link}, {type:PC})
+CREATE (Ganondorf:actor { name:'Ganondorf' },
+(Link:actor {name:Link}
 ----
 
 [source,cypher]
