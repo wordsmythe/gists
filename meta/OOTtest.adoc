@@ -48,7 +48,6 @@ CREATE
 ( ZorasRiver:area { name:'Zora\'s River' }),
 (LinksHouse:building { name:'Link\'s House' }),
 (HouseOfMido:building { name:'House of Mido' })
-RETURN n.area
 ----
 
 ==NOTE= DUNGEONS and BUILDINGS?
@@ -59,7 +58,7 @@ RETURN n.area
 [source,cypher]
 ----
 CREATE (Ganondorf:actor { name:'Ganondorf' }),
-(Link:actor {youngLink|adultLink}
+(Link:actor {status:youngLink|adultLink}
 ----
 +Items+
 
@@ -68,7 +67,7 @@ CREATE (Ganondorf:actor { name:'Ganondorf' }),
 CREATE
 (KokiriSword:sword { name:'Kokiri Sword' }),
 (DekuShield:shield { name:'Deku Shield' }),
-(heartPieces:collectable { name:'Heart Pieces' }),
+(heartPieces:collectable { name:'Heart Pieces' })
 ----
 
 +bombs+
@@ -94,7 +93,7 @@ CREATE
 ( spinSlash:magic { name: "Spin-Slash"}),
 ( DinsFire:magic { name: "Din's Fire"}),
 ( FaroresWind:magic { name: "Farore's Wind"}),
-( NayrusLove:magic { name: "Naryu's Love"}),
+( NayrusLove:magic { name: "Naryu's Love"})
 ----
 ==masks
 
@@ -112,9 +111,9 @@ CREATE
 ----
 
 
+==Songs
 [source,cypher]
 ----
-==Songs
 CREATE ( SunsSong:song { name:"Sun's Song" }),
 ( EponasSong:song { name:"Epona's Song" }),
 ( SariasSong:song { name:"Saria's Song" }),
@@ -124,9 +123,9 @@ CREATE ( SunsSong:song { name:"Sun's Song" }),
 (ScarecrowSong)-[FOUND_IN]->(LakeHylia)
 ----
 
+==Relationships
 [source,cypher]
 ----
-==Relationships
 CREATE 
 (LonLonRanch)-[:CONNECTS_TO]->(hyruleField),
 (LakeHylia)-[:CONNECTS_TO]->(HyruleField),
