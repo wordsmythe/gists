@@ -66,6 +66,8 @@ CREATE (Ganondorf:actor { name:'Ganondorf' }),
 ----
 SET Ganondorf.type = {boss},
 Link.type = {PC}
+----
+
 +Items+
 
 [source,cypher]
