@@ -58,8 +58,8 @@ CREATE
 +Actors+
 [source,cypher]
 ----
-CREATE (Ganondorf:actor { name:'Ganondorf' }),
-(Link:actor {status:youngLink}{status:adultLink}
+CREATE (Ganondorf:actor { name:'Ganondorf' }, {type:boss}),
+(Link:actor {name:Link}, {type:PC})
 ----
 +Items+
 
