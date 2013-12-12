@@ -22,8 +22,8 @@ CREATE (Ganondorf:actor { name:'Ganondorf' }),
 
 [source,cypher]
 ----
-SET 1.type = {'boss'},
-2.type = {'PC'}
+SET 1.type = {boss},
+2.type = {PC}
 ----
 
 
