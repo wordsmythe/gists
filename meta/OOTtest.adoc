@@ -58,7 +58,7 @@ CREATE
 [source,cypher]
 ----
 CREATE (Ganondorf:actor { name:'Ganondorf' }),
-(Link:actor {status:youngLink|adultLink}
+(Link:actor {status:youngLink}{status:adultLink}
 ----
 +Items+
 
@@ -118,7 +118,6 @@ CREATE ( SunsSong:song { name:"Sun's Song" }),
 ( EponasSong:song { name:"Epona's Song" }),
 ( SariasSong:song { name:"Saria's Song" }),
 ( ZeldasLullabyeg:song { name:"Zelda's Lullabye" }),
-( SunsSong:song { name:"Sun's Song" }),
 ( ScarecrowSong:song { name:'Scarecrow Song' }), 
 (ScarecrowSong)-[FOUND_IN]->(LakeHylia)
 ----
@@ -150,7 +149,7 @@ CREATE
 (ZorasDomain)-[:CONNECTS_TO]->(HyruleField),
 (HyruleCastle)-[:CONNECTS_TO]->(HyruleMarket),
 (HyruleCastle)-[:CONNECTS_TO]->(DeathMountain),
-(LostWoods)-[:CONNECTS_TO]->(KokiriForest);
+(LostWoods)-[:CONNECTS_TO]->(KokiriForest),
 (KakarikoGraveyard)-[:CONNECTS_TO]->(KakarikoVillage),
 (Well)-[:CONNECTS_TO]->(KakarikoVillage),
 (KakarikoVillage)-[:CONNECTS_TO]->(KakarikoGraveyard),
