@@ -119,7 +119,6 @@ CREATE ( SunsSong:song { name:"Sun's Song" }),
 ( SariasSong:song { name:"Saria's Song" }),
 ( ZeldasLullabyeg:song { name:"Zelda's Lullabye" }),
 ( ScarecrowSong:song { name:'Scarecrow Song' }), 
-(ScarecrowSong)-[FOUND_IN]->(LakeHylia)
 ----
 
 ==Relationships
@@ -153,7 +152,7 @@ CREATE
 (KakarikoGraveyard)-[:CONNECTS_TO]->(KakarikoVillage),
 (Well)-[:CONNECTS_TO]->(KakarikoVillage),
 (KakarikoVillage)-[:CONNECTS_TO]->(KakarikoGraveyard),
-(KakarikoVillage)-[:CONNECTS_TO]->(Well),
+(KakarikoVillage)-[:CONNECTS_TO]->(Well)
 ----
 
 ===DeathMountainCrater 
@@ -234,7 +233,8 @@ CREATE
 (spinSlash )-[:FOUND_IN {req: {bomb}}]->(DeathMountain), 
 (DinsFire)-[:FOUND_IN {req: {bomb}}]->(HyruleCastle), 
 (FaroresWind)-[:FOUND_IN {req: {bomb}}]->(ZorasFountain), 
-(NayrusLove)-[:FOUND_IN {req: {bomb}}]->(DesertColossus)
+(NayrusLove)-[:FOUND_IN {req: {bomb}}]->(DesertColossus),
+(ScarecrowSong)-[FOUND_IN]->(LakeHylia)
 ----
 [source,cypher]
 ----
