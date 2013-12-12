@@ -6,6 +6,7 @@
 https://github.com/wordsmythe/gists/edit/master/meta/OOTtest.adoc[Git adoc]
 http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fmeta%2FOOTtest.adoc[run it]
 
+//console
 :areas
 
 //setup
@@ -236,12 +237,12 @@ CREATE
 (NayrusLove)-[:FOUND_IN {req: {bomb}}]->(DesertColossus),
 (ScarecrowSong)-[FOUND_IN]->(LakeHylia)
 ----
-[source,cypher]
-----
-//console
+
+
+
 //graph
 //table
-----
+
 
 (GoldSkulltula)-[:FOUND_IN]->(), http=//www.gamefaqs.com/n64/197771-the-legend-of-zelda-ocarina-of-time/faqs/3514
 
