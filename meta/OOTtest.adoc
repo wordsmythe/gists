@@ -13,6 +13,20 @@ http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fmeta%2FOOTtest.adoc[run it
 
 //setup
 //output
++Actors+
+[source,cypher]
+----
+CREATE (Ganondorf:actor { name:'Ganondorf' }),
+(Link:actor {name:'Link'})
+----
+
+[source,cypher]
+----
+SET 1.type = {'boss'},
+2.type = {'PC'}
+----
+
+
 [source,cypher]
 ----
 CREATE 
@@ -56,20 +70,6 @@ CREATE
 ==NOTE= DUNGEONS and BUILDINGS?
 
  
-
-+Actors+
-[source,cypher]
-----
-CREATE (Ganondorf:actor { name:'Ganondorf' }),
-(Link:actor {name:Link})
-----
-
-[source,cypher]
-----
-SET Ganondorf.type = {boss},
-Link.type = {PC}
-----
-
 +Items+
 
 [source,cypher]
