@@ -6,21 +6,9 @@
 https://github.com/wordsmythe/gists/edit/master/meta/OOTtest.adoc[Git adoc]
 http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fmeta%2FOOTtest.adoc[run it]
 
-//console
-//graph
-//table
 :areas
-
+//console
 //setup
-//output
-+Actors+
-[source,cypher]
-----
-CREATE ( Ganondorf:actor { type:'boss' }),
-( Link:actor { type:'playerCharacter' })
-----
-
-
 [source,cypher]
 ----
 CREATE 
@@ -159,6 +147,9 @@ CREATE
 (KakarikoVillage)-[:CONNECTS_TO]->(Well)
 ----
 
+//graph
+//table
+
 ===DeathMountainCrater 
 ==DeathMountainTrail
 ==DekuTree
@@ -241,7 +232,12 @@ CREATE
 (ScarecrowSong)-[FOUND_IN]->(LakeHylia)
 ----
 
-
++Actors+
+[source,cypher]
+----
+CREATE ( Ganondorf:actor { type:'boss' }),
+( Link:actor { type:'playerCharacter' })
+----
 
 
 (GoldSkulltula)-[:FOUND_IN]->(), http=//www.gamefaqs.com/n64/197771-the-legend-of-zelda-ocarina-of-time/faqs/3514
