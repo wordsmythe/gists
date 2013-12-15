@@ -9,7 +9,7 @@ http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fmeta%2FOOTtest.adoc[run it
 :areas
 //console
 //setup
-[source,cypher]
+/[source,cypher]
 ----
 CREATE 
 ( DeathMountain:area { name:'Death Mountain' }),
@@ -54,7 +54,7 @@ CREATE
  
 +Items+
 
-[source,cypher]
+/[source,cypher]
 ----
 CREATE
 (KokiriSword:sword { name:'Kokiri Sword' }),
@@ -79,7 +79,7 @@ ironBoots
 
 
 ==magic
-[source,cypher]
+/[source,cypher]
 ----
 CREATE
 ( spinSlash:magic { name: "Spin-Slash"}),
@@ -89,7 +89,7 @@ CREATE
 ----
 ==masks
 
-[source,cypher]
+/[source,cypher]
 ----
 CREATE
 ( keatonMask:mask { name: 'Keaton Mask'}),
@@ -104,7 +104,7 @@ CREATE
 
 
 ==Songs
-[source,cypher]
+/[source,cypher]
 ----
 CREATE ( SunsSong:song { name:"Sun's Song" }),
 ( EponasSong:song { name:"Epona's Song" }),
@@ -117,34 +117,34 @@ CREATE ( SunsSong:song { name:"Sun's Song" }),
 [source,cypher]
 ----
 CREATE 
-(LonLonRanch)-[:CONNECTS_TO]->(hyruleField),
-(LakeHylia)-[:CONNECTS_TO]->(HyruleField),
-(DeathMountainTrail)-[:CONNECTS_TO]->(kakarikoVillage),
-(DeathMountainTrail)-[:CONNECTS_TO]->(DodongosCave),
-(KakarikoVillage)-[:CONNECTS_TO]->(DeathMountainTrail),
-(GoronCity)-[:CONNECTS_TO]->(DeathMountainTrail),
-(GoronCity)-[:CONNECTS_TO]->(DeathMountainCrater),
-(DeathMountainCrater)-[:CONNECTS_TO]->(FireTemple),
-(GerudoValley)-[:CONNECTS_TO]->(LakeHylia),
-(GerudoValley)-[:CONNECTS_TO]->(HyruleField),
-(KokiriForest)-[:CONNECTS_TO]->(HyruleField),
-(KokiriForest)-[:CONNECTS_TO]->(LostWoods),
-(HyruleMarket)-[:CONNECTS_TO]->(HyruleCastle),
-(HyruleMarket)-[:CONNECTS_TO]->(TempleOfTime),
-(HyruleField)-[:CONNECTS_TO]->(HyruleMarket),
-(HyruleField)-[:CONNECTS_TO]->(GerudoValley),
-(HyruleField)-[:CONNECTS_TO]->(LonLonRanch),
-(HyruleField)-[:CONNECTS_TO]->(LakeHylia),
-(HyruleField)-[:CONNECTS_TO]->(Zorasdomain),
-(HyruleField)-[:CONNECTS_TO]->(KokiriForest),
-(ZorasDomain)-[:CONNECTS_TO]->(HyruleField),
-(HyruleCastle)-[:CONNECTS_TO]->(HyruleMarket),
-(HyruleCastle)-[:CONNECTS_TO]->(DeathMountain),
-(LostWoods)-[:CONNECTS_TO]->(KokiriForest),
-(KakarikoGraveyard)-[:CONNECTS_TO]->(KakarikoVillage),
-(Well)-[:CONNECTS_TO]->(KakarikoVillage),
-(KakarikoVillage)-[:CONNECTS_TO]->(KakarikoGraveyard),
-(KakarikoVillage)-[:CONNECTS_TO]->(Well)
+(LonLonRanch:area)-[:CONNECTS_TO]->(hyruleField:area),
+(LakeHylia:area)-[:CONNECTS_TO]->(HyruleField:area),
+(DeathMountainTrail:area)-[:CONNECTS_TO]->(kakarikoVillage:area),
+(DeathMountainTrail:area)-[:CONNECTS_TO]->(DodongosCave:area),
+(KakarikoVillage:area)-[:CONNECTS_TO]->(DeathMountainTrail:area),
+(GoronCity:area)-[:CONNECTS_TO]->(DeathMountainTrail:area),
+(GoronCity:area)-[:CONNECTS_TO]->(DeathMountainCrater:area),
+(DeathMountainCrater:area)-[:CONNECTS_TO]->(FireTemple:area),
+(GerudoValley:area)-[:CONNECTS_TO]->(LakeHylia:area),
+(GerudoValley:area)-[:CONNECTS_TO]->(HyruleField:area),
+(KokiriForest:area)-[:CONNECTS_TO]->(HyruleField:area),
+(KokiriForest:area)-[:CONNECTS_TO]->(LostWoods:area),
+(HyruleMarket:area)-[:CONNECTS_TO]->(HyruleCastle:area),
+(HyruleMarket:area)-[:CONNECTS_TO]->(TempleOfTime:area),
+(HyruleField:area)-[:CONNECTS_TO]->(HyruleMarket:area),
+(HyruleField:area)-[:CONNECTS_TO]->(GerudoValley:area),
+(HyruleField:area)-[:CONNECTS_TO]->(LonLonRanch:area),
+(HyruleField:area)-[:CONNECTS_TO]->(LakeHylia:area),
+(HyruleField:area)-[:CONNECTS_TO]->(Zorasdomain:area),
+(HyruleField:area)-[:CONNECTS_TO]->(KokiriForest:area),
+(ZorasDomain:area)-[:CONNECTS_TO]->(HyruleField:area),
+(HyruleCastle:area)-[:CONNECTS_TO]->(HyruleMarket:area),
+(HyruleCastle:area)-[:CONNECTS_TO]->(DeathMountain:area),
+(LostWoods:area)-[:CONNECTS_TO]->(KokiriForest:area),
+(KakarikoGraveyard:area)-[:CONNECTS_TO]->(KakarikoVillage:area),
+(Well:area)-[:CONNECTS_TO]->(KakarikoVillage:area),
+(KakarikoVillage:area)-[:CONNECTS_TO]->(KakarikoGraveyard:area),
+(KakarikoVillage:area)-[:CONNECTS_TO]->(Well:area)
 ----
 
 //graph
@@ -188,48 +188,48 @@ CREATE
 [source,cypher]
 ----
 CREATE 
-(KokiriSword)-[:FOUND_IN]->(KokiriForest),
-(heartPieces)-[:FOUND_IN {req: {bomb}}]->(HyruleField), 
-(heartPieces)-[:FOUND_IN {req: {bomb},{ironBoots},{adultLink}}]->(HyruleField), 
-(heartPieces)-[:FOUND_IN {req: {youngLink},{fairyOcarina}]->(LostWoods), 
-(heartPieces)-[:FOUND_IN {req: {youngLink},{fairyOcarina}]->(LostWoods), 
-(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(HyruleMarket), 
-(heartPieces)-[:FOUND_IN {req: {30rupees}}]->(HyruleMarket), 
-(heartPieces)-[:FOUND_IN {req: {10rupees}}]->(HyruleMarket), 
-(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(LonLonRanch), 
-(heartPieces)-[:FOUND_IN]->(KakarikoVillage), 
-(heartPieces)-[:FOUND_IN {req: {adultLink}}]->(KakarikoVillage), 
-(heartPieces)-[:FOUND_IN]->(KakarikoVillage), 
-(heartPieces)-[:FOUND_IN {req: {adultLink},{hookshot}}]->(KakarikoVillage), 
-(heartPieces)-[:FOUND_IN {req: {fairyOcarina}}]->(KakarikoGraveyard), 
-(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(KakarikoGraveyard), 
-(heartPieces)-[:FOUND_IN {req: {youngLink},{magicBeans}}]->(KakarikoGraveyard), 
-(heartPieces)-[:FOUND_IN {req: {adultLink}}]->(KakarikoGraveyard), 
-(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DeathMountainTrail), 
-(heartPieces)-[:FOUND_IN {req: {youngLink},{bomb}}]->(GoronCity), 
-(heartPieces)-[:FOUND_IN]->(DeathMountainCrater), 
-(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DeathMountainCrater), 
-(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(ZorasRiver), 
-(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(ZorasRiver), 
-(heartPieces)-[:FOUND_IN {req: {youngLink},{ocarinaOfTime}}]->(ZorasRiver), 
-(heartPieces)-[:FOUND_IN {req: {youngLink},{ocarinaOfTime}}]->(ZorasRiver), 
-(heartPieces)-[:FOUND_IN {req: {youngLink},{DekuStick}}]->(ZorasDomain), 
-(heartPieces)-[:FOUND_IN {req: {adultLink}}]->(ZorasFountain), 
-(heartPieces)-[:FOUND_IN {req: {adultLink},{ironBoots}}]->(ZorasFountain), 
-(heartPieces)-[:FOUND_IN {req: {youngLink}{20rupees}}]->(LakeHylia), 
-(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(LakeHylia), 
-(heartPieces)-[:FOUND_IN {req: {youngLink|goldScale}}]->(LakeHylia), 
-(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(GerudoValley), 
-(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(GerudoValley), 
-(heartPieces)-[:FOUND_IN {req: {adultLink},{longshot|ocarinaOfTime}}]->(GerudoFortress), 
-(heartPieces)-[:FOUND_IN {req: {Epona},{adultLink}}]->(GerudoFortress), 
-(heartPieces)-[:FOUND_IN {req: {adultLink},{emptyBottle|blueFire}}]->(IceCavern), 
-(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DesertColossus),
-(spinSlash )-[:FOUND_IN {req: {bomb}}]->(DeathMountain), 
-(DinsFire)-[:FOUND_IN {req: {bomb}}]->(HyruleCastle), 
-(FaroresWind)-[:FOUND_IN {req: {bomb}}]->(ZorasFountain), 
-(NayrusLove)-[:FOUND_IN {req: {bomb}}]->(DesertColossus),
-(ScarecrowSong)-[FOUND_IN]->(LakeHylia)
+(KokiriSword)-[:FOUND_IN]->(KokiriForest:area),
+(heartPieces)-[:FOUND_IN {req: {bomb}}]->(HyruleField:area),
+(heartPieces)-[:FOUND_IN {req: {bomb},{ironBoots},{adultLink}}]->(HyruleField:area),
+(heartPieces)-[:FOUND_IN {req: {youngLink},{fairyOcarina}]->(LostWoods:area),
+(heartPieces)-[:FOUND_IN {req: {youngLink},{fairyOcarina}]->(LostWoods:area),
+(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(HyruleMarket:area),
+(heartPieces)-[:FOUND_IN {req: {30rupees}}]->(HyruleMarket:area),
+(heartPieces)-[:FOUND_IN {req: {10rupees}}]->(HyruleMarket:area),
+(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(LonLonRanch:area),
+(heartPieces)-[:FOUND_IN]->(KakarikoVillage:area),
+(heartPieces)-[:FOUND_IN {req: {adultLink}}]->(KakarikoVillage:area), 
+(heartPieces)-[:FOUND_IN]->(KakarikoVillage:area),
+(heartPieces)-[:FOUND_IN {req: {adultLink},{hookshot}}]->(KakarikoVillage:area),
+(heartPieces)-[:FOUND_IN {req: {fairyOcarina}}]->(KakarikoGraveyard:area),
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(KakarikoGraveyard:area),
+(heartPieces)-[:FOUND_IN {req: {youngLink},{magicBeans}}]->(KakarikoGraveyard:area),
+(heartPieces)-[:FOUND_IN {req: {adultLink}}]->(KakarikoGraveyard:area),
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DeathMountainTrail:area),
+(heartPieces)-[:FOUND_IN {req: {youngLink},{bomb}}]->(GoronCity:area),
+(heartPieces)-[:FOUND_IN]->(DeathMountainCrater:area),
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DeathMountainCrater:area),
+(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(ZorasRiver:area),
+(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(ZorasRiver:area),
+(heartPieces)-[:FOUND_IN {req: {youngLink},{ocarinaOfTime}}]->(ZorasRiver:area), 
+(heartPieces)-[:FOUND_IN {req: {youngLink},{ocarinaOfTime}}]->(ZorasRiver:area),
+(heartPieces)-[:FOUND_IN {req: {youngLink},{DekuStick}}]->(ZorasDomain:area),
+(heartPieces)-[:FOUND_IN {req: {adultLink}}]->(ZorasFountain:area),
+(heartPieces)-[:FOUND_IN {req: {adultLink},{ironBoots}}]->(ZorasFountain:area),
+(heartPieces)-[:FOUND_IN {req: {youngLink}{20rupees}}]->(LakeHylia:area),
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(LakeHylia:area), 
+(heartPieces)-[:FOUND_IN {req: {youngLink|goldScale}}]->(LakeHylia:area), 
+(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(GerudoValley:area), 
+(heartPieces)-[:FOUND_IN {req: {youngLink}}]->(GerudoValley:area),
+(heartPieces)-[:FOUND_IN {req: {adultLink},{longshot|ocarinaOfTime}}]->(GerudoFortress:area), 
+(heartPieces)-[:FOUND_IN {req: {Epona},{adultLink}}]->(GerudoFortress:area), 
+(heartPieces)-[:FOUND_IN {req: {adultLink},{emptyBottle|blueFire}}]->(IceCavern:area), 
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DesertColossus:area),
+(spinSlash )-[:FOUND_IN {req: {bomb}}]->(DeathMountain:area),
+(DinsFire)-[:FOUND_IN {req: {bomb}}]->(HyruleCastle:area), 
+(FaroresWind)-[:FOUND_IN {req: {bomb}}]->(ZorasFountain:area), 
+(NayrusLove)-[:FOUND_IN {req: {bomb}}]->(DesertColossus:area),
+(ScarecrowSong)-[FOUND_IN]->(LakeHylia:area)
 ----
 
 +Actors+
