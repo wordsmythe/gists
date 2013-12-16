@@ -17,7 +17,7 @@ http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fmeta%2FOOTtest.adoc[Run it
 ----
 //Areas
 CREATE 
-	( DeathMountainCrater:area { name:'Death Mountain Crater' }),
+	( DeathMountainSummit:area { name:'Death Mountain Summit' }),
 	( DeathMountainTrail:area { name:'Death Mountain Trail' }),
 	( DekuTree:area { name:'Deku Tree' }),
 	( DesertColossus:area { name:'Desert Colossus' }),
@@ -63,12 +63,11 @@ CREATE
 	(DeathMountainTrail:area)-[:CONNECTS_TO]->(DodongosCave:area),
 	(KakarikoVillage:area)-[:CONNECTS_TO]->(DeathMountainTrail:area),
 	(GoronCity:area)-[:CONNECTS_TO]->(DeathMountainTrail:area),
-	(GoronCity:area)-[:CONNECTS_TO]->(DeathMountainCrater:area),
-	(DeathMountainCrater:area)-[:CONNECTS_TO]->(FireTemple:area),
+	(DeathMountainTrail:area)-[:CONNECTS_TO]->(DeathMountainSummit:area),
+	(DeathMountainSummit:area)-[:CONNECTS_TO]->(FireTemple:area),
 	(GerudoValley:area)-[:CONNECTS_TO]->(LakeHylia:area),
 	(GerudoValley:area)-[:CONNECTS_TO]->(HyruleField:area),
 	(HyruleCastle:area)-[:CONNECTS_TO]->(HyruleMarket:area),
-	(HyruleCastle:area)-[:CONNECTS_TO]->(DeathMountain:area),
 	(HyruleField:area)-[:CONNECTS_TO]->(GerudoValley:area),
 	(HyruleField:area)-[:CONNECTS_TO]->(LonLonRanch:area),
 	(HyruleField:area)-[:CONNECTS_TO]->(LakeHylia:area),
@@ -93,27 +92,27 @@ CREATE
 ----
 CREATE
 	(bombs:collecatble { name: 'bombs' }),
-	(claimCheck:item { name: 'Claim Check' }),
+	(ClaimCheck:item { name: 'Claim Check' }),
 	(DekuShield:shield { name: 'Deku Shield' }),
 	(heartPieces:collectable { name: 'Heart Pieces' }),
-	(ironboots:item { name: 'Iron Boots' }),
+	(Ironboots:item { name: 'Iron Boots' }),
 	(KokiriSword:sword { name: 'Kokiri Sword' }),
 	(magicBeans:collectable { name: 'Magic Beans' }),
 	(pocketEgg:item { name: 'Pocket Egg'}),
 	(worldsFinestEyedrops:item { name: 'World\'s Finest Eyedrops' }),
-	(cojiro:item { name:cojiro}),
-	(oddMushroom:item { name:oddMushroom}),
-	(oddPotion:item { name:oddPotion}),
-	(poachersSaw:item { name:poachersSaw}),
-	(brokenGoronsSword:item { name:brokenGoronsSword}),
+	(Cojiro:item { name:Cojiro}),
+	(OddMushroom:item { name:oddMushroom}),
+	(OddPotion:item { name:oddPotion}),
+	(PoachersSaw:item { name:poachersSaw}),
+	(BrokenGoronsSword:item { name:brokenGoronsSword}),
 	(prescription:item { name:prescription}),
-	(eyeballFrog:item { name:eyeballFrog}),
+	(EyeballFrog:item { name:eyeballFrog}),
 	(BiggoronsSword:item { name:BiggoronsSword})
 
 //magic
 
 CREATE
-( spinSlash:magic { name: "Spin-Slash"}),
+( SpinSlash:magic { name: "Spin-Slash"}),
 ( DinsFire:magic { name: "Din's Fire"}),
 ( FaroresWind:magic { name: "Farore's Wind"}),
 ( NayrusLove:magic { name: "Naryu's Love"})
@@ -161,8 +160,8 @@ CREATE
 (heartPieces)-[:FOUND_IN {req: {adultLink}}]->(KakarikoGraveyard:area),
 (heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DeathMountainTrail:area),
 (heartPieces)-[:FOUND_IN {req: {bomb}}]->(GoronCity:area),
-(heartPieces)-[:FOUND_IN]->(DeathMountainCrater:area),
-(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DeathMountainCrater:area),
+(heartPieces)-[:FOUND_IN]->(DeathMountainSummit:area),
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DeathMountainSummit:area),
 (heartPieces)-[:FOUND_IN {req: {youngLink}}]->(ZorasRiver:area),
 (heartPieces)-[:FOUND_IN {req: {youngLink}}]->(ZorasRiver:area),
 (heartPieces)-[:FOUND_IN {req: {ocarinaOfTime}}]->(ZorasRiver:area), 
@@ -180,16 +179,17 @@ CREATE
 (heartPieces)-[:FOUND_IN {req: {blueFire}}]->(IceCavern:area), 
 (heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DesertColossus:area),
 (PocketEgg)-[:FOUND_IN]->(KakarikoVillage),
-(cojiro)-[:FOUND_IN]->(pocketEgg),
-(oddMushroom)-[:FOUND_IN]->(LostWoods),
-(oddPotion)-[:FOUND_IN]->(KakarikoVillage),
-(poachersSaw)-[:FOUND_IN]->(LostWoods),
-(brokenGoronsSword)-[:FOUND_IN]->(GerudoValley),
-(prescription)-[:FOUND_IN]->(DeathMountain),
-(eyeballFrog)-[:FOUND_IN]->(ZorasDomain),
-(worldsFinestEyedrops)-[:FOUND_IN]->(LakeHyliaLaboratory),
-(claimCheck)-[:FOUND_IN]->(DeathMountain),
-(BiggoronsSword)-[:FOUND_IN]->(DeathMountain)
+(PocketCucco)-[:FOUND_IN]->(pocketEgg),
+(Cojiro)-[:FOUND_IN {req: {PocketCucco}}]->(KakarikoVillage),
+(OddMushroom)-[:FOUND_IN {req: {Cojiro}}]->(LostWoods),
+(OddPotion)-[:FOUND_IN {req: {OddMushroom}}]->(KakarikoVillage),
+(PoachersSaw)-[:FOUND_IN {req: {OddPotion}}]->(LostWoods),
+(BrokenGoronsSword)-[:FOUND_IN {req: {PachersSaw}}]->(GerudoValley),
+(Prescription)-[:FOUND_IN]->(DeathMountainSummit),
+(EyeballFrog)-[:FOUND_IN {req: {Prescription}}]->(ZorasDomain),
+(WorldsFinestEyedrops)-[:FOUND_IN {req: {EyeballFrog}}]->(LakeHyliaLaboratory),
+(ClaimCheck)-[:FOUND_IN {req: {BrokenGoronsSword}}]->(DeathMountainSummit),
+(BiggoronsSword)-[:FOUND_IN {req: {ClaimCheck}}]->(DeathMountainSummit)
 
 //Magic and Songs
 
