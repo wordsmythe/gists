@@ -220,8 +220,7 @@ CREATE
 (Ganondorf)-[:KIDNAPS]->(Zelda),
 (Zelda)-[:ALTER_EGO]->(Sheik),
 (Sheik)-[:AIDS]->(Link),
-(Link)-[:BATTLES]-(Ganondorf),
-(Link)-[:RESCUES]->(Zelda)
+(Link)-[:BATTLES]->(Ganondorf)
 ----
 //graph
 
