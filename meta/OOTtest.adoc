@@ -224,7 +224,7 @@ CREATE
 (Link)-[:BATTLES]->(Ganondorf)
 ----
 
-//graph
+//console
 
 
 
