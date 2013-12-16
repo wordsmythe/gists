@@ -86,6 +86,8 @@ CREATE
 	(ZorasDomain:area)-[:CONNECTS_TO]->(HyruleField:area)
 ----
 
+//graph
+
 == Items and Abilities
 
 [source,cypher]
