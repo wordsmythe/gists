@@ -57,9 +57,9 @@ CREATE
 //Area Relationships
 
 CREATE
-	(LonLonRanch:area)-[:CONNECTS_TO]->(hyruleField:area),
+	(LonLonRanch:area)-[:CONNECTS_TO]->(HyruleField:area),
 	(LakeHylia:area)-[:CONNECTS_TO]->(HyruleField:area),
-	(DeathMountainTrail:area)-[:CONNECTS_TO]->(kakarikoVillage:area),
+	(DeathMountainTrail:area)-[:CONNECTS_TO]->(KakarikoVillage:area),
 	(DeathMountainTrail:area)-[:CONNECTS_TO]->(DodongosCave:area),
 	(KakarikoVillage:area)-[:CONNECTS_TO]->(DeathMountainTrail:area),
 	(GoronCity:area)-[:CONNECTS_TO]->(DeathMountainTrail:area),
