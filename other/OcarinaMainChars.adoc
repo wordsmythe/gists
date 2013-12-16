@@ -17,7 +17,7 @@ http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fother%2FOcarinaMainChars.a
 ----
 CREATE ( Ganondorf:actor { type:'boss' }),
 ( Link:actor { type:'playerCharacter' }),
-( Zelda:actor { type:'NPC' }),
+( Zelda:actor { type:'NPC' }{name:'Zelda'}),
 ( Sheik:actor { type:'NPC' })
 
 CREATE
