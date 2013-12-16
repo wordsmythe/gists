@@ -202,7 +202,8 @@ CREATE
 (ScarecrowSong)-[:FOUND_IN]->(LakeHylia:area),
 ----
 
-===Plenty more to add. Gold Skulltulas, monsters for each area, the rest of the buildings in areas, etc.
+
+=== Plenty more to add. Gold Skulltulas, monsters for each area, the rest of the buildings in areas, etc.
 
 
 
