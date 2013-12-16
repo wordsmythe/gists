@@ -178,7 +178,7 @@ CREATE
 (heartPieces)-[:FOUND_IN {req: {youngLink}}]->(GerudoValley:area),
 (heartPieces)-[:FOUND_IN {req: {longshot}}]->(GerudoFortress:area), 
 (heartPieces)-[:FOUND_IN {req: {Epona}}]->(GerudoFortress:area), 
-(heartPieces)-[:FOUND_IN {req: {emptyBottle|blueFire}}]->(IceCavern:area), 
+(heartPieces)-[:FOUND_IN {req: {blueFire}}]->(IceCavern:area), 
 (heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DesertColossus:area),
 (PocketEgg)-[:FOUND_IN]->(KakarikoVillage),
 (cojiro)-[:FOUND_IN]->(pocketEgg),
