@@ -29,6 +29,7 @@ CREATE
 
 //console
 
+//graph
 
 
 Each query has a green or red button to indicate if the query was successful or not.
