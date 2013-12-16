@@ -163,7 +163,7 @@ CREATE
 (heartPieces)-[:FOUND_IN]->(DeathMountainSummit:area),
 (heartPieces)-[:FOUND_IN {req:'magicBeans'}]->(DeathMountainSummit:area),
 (heartPieces)-[:FOUND_IN {req:'youngLink'}]->(ZorasRiver:area),
-(heartPieces)-[:FOUND_IN {req:'youngLink}']->(ZorasRiver:area),
+(heartPieces)-[:FOUND_IN {req:'youngLink'}]->(ZorasRiver:area),
 (heartPieces)-[:FOUND_IN {req:'ocarinaOfTime'}]->(ZorasRiver:area), 
 (heartPieces)-[:FOUND_IN {req:'ocarinaOfTime'}]->(ZorasRiver:area),
 (heartPieces)-[:FOUND_IN {req:'DekuStick'}]->(ZorasDomain:area),
