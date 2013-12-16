@@ -51,7 +51,7 @@ CREATE
 	( Well:area { name:'Well' }),
 	( ZorasDomain:area { name:'Zora\'s Domain' }),
 	( ZorasFountain:area { name:'Zora\'s Fountain' }),
-	( ZorasRiver:area { name:'Zora\'s River' }),
+	( ZorasRiver:area { name:'Zora\'s River' })
 
 //NOTE: Break out dungeons, areas, buildings
 
