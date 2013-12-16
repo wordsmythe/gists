@@ -7,66 +7,103 @@ https://github.com/wordsmythe/gists/edit/master/meta/OOTtest.adoc[Git adoc] - Fo
 
 http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fmeta%2FOOTtest.adoc[Run it] on Neo4j's GraphGist page. 
 
-:areas
-//console
+== Area Setup
+
+//hide
+
 //setup
-/[source,cypher]
+
+[source,cypher]
 ----
+//Areas
 CREATE 
-( DeathMountain:area { name:'Death Mountain' }),
-( GerudoValley:area { name:'Gerudo Valley' }),
-( HyruleCastle:area { name:'Hyrule Castle' }),
-( HyruleField:area { name:'Hyrule Field' }),
-( HyruleMarket:area { name:'Hyrule Market' }),
-( KokiriForest:area { name:'Kokiri Forest' }),
-( LakeHylia:area { name:'Lake Hylia' }),
-( LonLonRanch:area { name:'Lon Lon ranch' }),
-( LostWoods:area { name:'Lost Woods' }),
-( ZorasDomain:area { name:'Zora\'s Domain' }),
-( DeathMountainCrater:area { name:'Death Mountain Crater' }),
-( DeathMountainTrail:area { name:'Death Mountain Trail' }),
-( DekuTree:area { name:'Deku Tree' }),
-( DesertColossus:area { name:'Desert Colossus' }),
-( DondongosCavern:area { name:'Dodongo\'s Cavern' }),
-( FireTemple:area { name:'Fire Temple' }),
-( ForestTemple:area { name:'Forest Temple' }),
-( GanonsCastle:area { name:'Ganon\'s Temple' }),
-( GerudoFortress:area { name:'Gerudo Fortress' }),
-( GoronCity:area { name:'Goron City' }),
-( HauntedWasteland:area { name:'Haunted Wasteland' }),
-( IceCavern:area { name:'Ice Cavern' }),
-( JabuJabusBelly:area { name:'Jabu Jabu\'s Belly' }),
-( KakarikoVillage:area { name:'Kakariko Village' }),
-( KakarikoGraveyard:area { name:'Kakariko Graveyard' }),
-( LakeHyliaLaboratory:area { name:'Lake Hylia Laboratory' }),
-( SacredForestMeadow:area { name:'Sacred Forest Meadow' }),
-( ShadowTemple:area { name:'Shadow Temple' }),
-( SpiritTemple:area { name:'Spirit Temple' }),
-( WaterTemple:area { name:'Water Temple' }),
-( Well:area { name:'Well' }),
-( ZorasFountain:area { name:'Zora\'s Fountain' }),
-( ZorasRiver:area { name:'Zora\'s River' }),
-(LinksHouse:building { name:'Link\'s House' }),
-(HouseOfMido:building { name:'House of Mido' })
+	( DeathMountain:area { name:'Death Mountain' }),
+	( DeathMountainCrater:area { name:'Death Mountain Crater' }),
+	( DeathMountainTrail:area { name:'Death Mountain Trail' }),
+	( DekuTree:area { name:'Deku Tree' }),
+	( DesertColossus:area { name:'Desert Colossus' }),
+	( DondongosCavern:area { name:'Dodongo\'s Cavern' }),
+	( FireTemple:area { name:'Fire Temple' }),
+	( ForestTemple:area { name:'Forest Temple' }),
+	( GanonsCastle:area { name:'Ganon\'s Temple' }),
+	( GerudoFortress:area { name:'Gerudo Fortress' }),
+	( GerudoValley:area { name:'Gerudo Valley' }),
+	( GoronCity:area { name:'Goron City' }),
+	( HauntedWasteland:area { name:'Haunted Wasteland' }),
+	( HouseOfMido:area { name:'House of Mido' })
+	( HyruleCastle:area { name:'Hyrule Castle' }),
+	( HyruleField:area { name:'Hyrule Field' }),
+	( HyruleMarket:area { name:'Hyrule Market' }),
+	( IceCavern:area { name:'Ice Cavern' }),
+	( JabuJabusBelly:area { name:'Jabu Jabu\'s Belly' }),
+	( KakarikoVillage:area { name:'Kakariko Village' }),
+	( KakarikoGraveyard:area { name:'Kakariko Graveyard' }),
+	( KokiriForest:area { name:'Kokiri Forest' }),
+	( LakeHylia:area { name:'Lake Hylia' }),
+	( LakeHyliaLaboratory:area { name:'Lake Hylia Laboratory' }),
+	( LinksHouse:area { name:'Link\'s House' }),
+	( LonLonRanch:area { name:'Lon Lon Ranch' }),
+	( LostWoods:area { name:'Lost Woods' }),
+	( SacredForestMeadow:area { name:'Sacred Forest Meadow' }),
+	( ShadowTemple:area { name:'Shadow Temple' }),
+	( SpiritTemple:area { name:'Spirit Temple' }),
+	( WaterTemple:area { name:'Water Temple' }),
+	( Well:area { name:'Well' }),
+	( ZorasDomain:area { name:'Zora\'s Domain' }),
+	( ZorasFountain:area { name:'Zora\'s Fountain' }),
+	( ZorasRiver:area { name:'Zora\'s River' }),
+
+//NOTE: Break out dungeons, areas, buildings
+
+//Area Relationships
+
+SET
+	(LonLonRanch:area)-[:CONNECTS_TO]->(hyruleField:area),
+	(LakeHylia:area)-[:CONNECTS_TO]->(HyruleField:area),
+	(DeathMountainTrail:area)-[:CONNECTS_TO]->(kakarikoVillage:area),
+	(DeathMountainTrail:area)-[:CONNECTS_TO]->(DodongosCave:area),
+	(KakarikoVillage:area)-[:CONNECTS_TO]->(DeathMountainTrail:area),
+	(GoronCity:area)-[:CONNECTS_TO]->(DeathMountainTrail:area),
+	(GoronCity:area)-[:CONNECTS_TO]->(DeathMountainCrater:area),
+	(DeathMountainCrater:area)-[:CONNECTS_TO]->(FireTemple:area),
+	(GerudoValley:area)-[:CONNECTS_TO]->(LakeHylia:area),
+	(GerudoValley:area)-[:CONNECTS_TO]->(HyruleField:area),
+	(HyruleCastle:area)-[:CONNECTS_TO]->(HyruleMarket:area),
+	(HyruleCastle:area)-[:CONNECTS_TO]->(DeathMountain:area),
+	(HyruleField:area)-[:CONNECTS_TO]->(GerudoValley:area),
+	(HyruleField:area)-[:CONNECTS_TO]->(LonLonRanch:area),
+	(HyruleField:area)-[:CONNECTS_TO]->(LakeHylia:area),
+	(HyruleField:area)-[:CONNECTS_TO]->(Zorasdomain:area),
+	(HyruleField:area)-[:CONNECTS_TO]->(KokiriForest:area),
+	(HyruleField:area)-[:CONNECTS_TO]->(HyruleMarket:area),
+	(HyruleMarket:area)-[:CONNECTS_TO]->(HyruleCastle:area),
+	(HyruleMarket:area)-[:CONNECTS_TO]->(TempleOfTime:area),
+	(KakarikoGraveyard:area)-[:CONNECTS_TO]->(KakarikoVillage:area),
+	(KakarikoVillage:area)-[:CONNECTS_TO]->(KakarikoGraveyard:area),
+	(KakarikoVillage:area)-[:CONNECTS_TO]->(Well:area),
+	(KokiriForest:area)-[:CONNECTS_TO]->(HyruleField:area),
+	(KokiriForest:area)-[:CONNECTS_TO]->(LostWoods:area),
+	(LostWoods:area)-[:CONNECTS_TO]->(KokiriForest:area),
+	(Well:area)-[:CONNECTS_TO]->(KakarikoVillage:area),
+	(ZorasDomain:area)-[:CONNECTS_TO]->(HyruleField:area)
 ----
 
-==NOTE= DUNGEONS and BUILDINGS?
+== Items and Abilities
 
- 
-+Items+
-
-/[source,cypher]
+[source,cypher]
 ----
 CREATE
-(KokiriSword:sword { name:'Kokiri Sword' }),
-(DekuShield:shield { name:'Deku Shield' }),
-(heartPieces:collectable { name:'Heart Pieces' })
+ (bombs:collecatble { name: 'bombs' }),
+ (claimCheck:item { name: 'Claim Check' }),
+	(DekuShield:shield { name: 'Deku Shield' }),
+	(heartPieces:collectable { name: 'Heart Pieces' }),
+ (ironboots:item { name: 'Iron Boots' }),
+	(KokiriSword:sword { name: 'Kokiri Sword' }),
+ {magicBeans:collectable { name: 'Magic Beans' }),
+ {pocketEgg:item { name: 'Pocket Egg'}),
+ (worldsFinestEyedrops:item { name: 'World\'s Finest Eyedrops' })
 ----
-
-+bombs+
-ironBoots
-:magicBeans
-==pocketEgg KarkarikoVillage+
+ 
 ==cojiro KakarikoVillage+
 ==oddMushroom LostWoods+
 ==oddPotion KakarikoVillage+
@@ -74,13 +111,11 @@ ironBoots
 ==brokenGoronsSword GerudoValley+
 ==prescription DeathMountain+
 ==eyeballFrog ZorasDomain+
-==worldsFinestEyeDrops LakeHyliaLaboratory+
-==claimCheck DeathMountain+
 ==BiggoronsSword DeathMountain+
 
 
-==magic
-/[source,cypher]
+//magic
+[source,cypher]
 ----
 CREATE
 ( spinSlash:magic { name: "Spin-Slash"}),
@@ -105,7 +140,7 @@ CREATE
 
 
 ==Songs
-/[source,cypher]
+[source,cypher]
 ----
 CREATE ( SunsSong:song { name:"Sun's Song" }),
 ( EponasSong:song { name:"Epona's Song" }),
@@ -114,84 +149,23 @@ CREATE ( SunsSong:song { name:"Sun's Song" }),
 ( ScarecrowSong:song { name:'Scarecrow Song' })
 ----
 
-==Relationships
-[source,cypher]
-----
-CREATE 
-(LonLonRanch:area)-[:CONNECTS_TO]->(hyruleField:area),
-(LakeHylia:area)-[:CONNECTS_TO]->(HyruleField:area),
-(DeathMountainTrail:area)-[:CONNECTS_TO]->(kakarikoVillage:area),
-(DeathMountainTrail:area)-[:CONNECTS_TO]->(DodongosCave:area),
-(KakarikoVillage:area)-[:CONNECTS_TO]->(DeathMountainTrail:area),
-(GoronCity:area)-[:CONNECTS_TO]->(DeathMountainTrail:area),
-(GoronCity:area)-[:CONNECTS_TO]->(DeathMountainCrater:area),
-(DeathMountainCrater:area)-[:CONNECTS_TO]->(FireTemple:area),
-(GerudoValley:area)-[:CONNECTS_TO]->(LakeHylia:area),
-(GerudoValley:area)-[:CONNECTS_TO]->(HyruleField:area),
-(KokiriForest:area)-[:CONNECTS_TO]->(HyruleField:area),
-(KokiriForest:area)-[:CONNECTS_TO]->(LostWoods:area),
-(HyruleMarket:area)-[:CONNECTS_TO]->(HyruleCastle:area),
-(HyruleMarket:area)-[:CONNECTS_TO]->(TempleOfTime:area),
-(HyruleField:area)-[:CONNECTS_TO]->(HyruleMarket:area),
-(HyruleField:area)-[:CONNECTS_TO]->(GerudoValley:area),
-(HyruleField:area)-[:CONNECTS_TO]->(LonLonRanch:area),
-(HyruleField:area)-[:CONNECTS_TO]->(LakeHylia:area),
-(HyruleField:area)-[:CONNECTS_TO]->(Zorasdomain:area),
-(HyruleField:area)-[:CONNECTS_TO]->(KokiriForest:area),
-(ZorasDomain:area)-[:CONNECTS_TO]->(HyruleField:area),
-(HyruleCastle:area)-[:CONNECTS_TO]->(HyruleMarket:area),
-(HyruleCastle:area)-[:CONNECTS_TO]->(DeathMountain:area),
-(LostWoods:area)-[:CONNECTS_TO]->(KokiriForest:area),
-(KakarikoGraveyard:area)-[:CONNECTS_TO]->(KakarikoVillage:area),
-(Well:area)-[:CONNECTS_TO]->(KakarikoVillage:area),
-(KakarikoVillage:area)-[:CONNECTS_TO]->(KakarikoGraveyard:area),
-(KakarikoVillage:area)-[:CONNECTS_TO]->(Well:area)
-----
+
 
 //graph
 //table
 
-===DeathMountainCrater 
-==DeathMountainTrail
-==DekuTree
-==DesertColossus
-==DondongosCavern http=//www.zeldadungeon.net/wiki/Dodongo%27s_Cavern
-==FireTemple http=//www.zeldadungeon.net/wiki/Fire_Temple_(Ocarina_of_Time)
-==ForestTemple http=//www.zeldadungeon.net/wiki/Forest_Temple_(Ocarina_of_Time)
-==GanonsCastle
-==GerudoFortress
-==GoronCity
-==HauntedWasteland
-==IceCavern
-==JabuJabusBelly http=//www.zeldadungeon.net/wiki/Inside_Jabu-Jabu%27s_Belly
-==KakarikoVillage
-==KakarikoGraveyard
-==LakeHyliaLaboratory
-==SacredForestMeadow
-==ShadowTemple http=//www.zeldadungeon.net/wiki/Shadow_Temple
-==SpiritTemple http=//www.zeldadungeon.net/wiki/Spirit_Temple
-==WaterTemple http=//www.zeldadungeon.net/wiki/Water_Temple
-==Well 
-==ZorasFountain
-==ZorasRiver
 
-==http=//www.zeldadungeon.net/wiki/The_Legend_of_Zelda=_Ocarina_of_Time
-==http=//zeldadungeon.net/forum/showthread.php?t=36467
-==http=//www.zeldadungeon.net/Zelda05-ocarina-of-time-walkthrough-07.php
-==http=//zeldawiki.org/Hyrule_Castle_Town#Ocarina_of_Time
-==http=//zelda.wikia.com/wiki/Hyrule_Castle_Town
-==http=//www.zeldalegends.net/index.php?n=oot
-==http=//zeldawiki.org/The_Legend_of_Zelda=_Ocarina_of_Time
+
 
 
 
 
 [source,cypher]
 ----
-CREATE 
+CREATE
 (KokiriSword)-[:FOUND_IN]->(KokiriForest:area),
 (heartPieces)-[:FOUND_IN {req: {bomb}}]->(HyruleField:area),
-(heartPieces)-[:FOUND_IN {req: {bomb},{ironBoots},{adultLink}}]->(HyruleField:area),
+(heartPieces)-[:FOUND_IN {req:bomb,req: ironBoots,req: adultLink}]->(HyruleField:area),
 (heartPieces)-[:FOUND_IN {req: {youngLink},{fairyOcarina}]->(LostWoods:area),
 (heartPieces)-[:FOUND_IN {req: {youngLink},{fairyOcarina}]->(LostWoods:area),
 (heartPieces)-[:FOUND_IN {req: {youngLink}}]->(HyruleMarket:area),
@@ -225,19 +199,47 @@ CREATE
 (heartPieces)-[:FOUND_IN {req: {adultLink},{longshot|ocarinaOfTime}}]->(GerudoFortress:area), 
 (heartPieces)-[:FOUND_IN {req: {Epona},{adultLink}}]->(GerudoFortress:area), 
 (heartPieces)-[:FOUND_IN {req: {adultLink},{emptyBottle|blueFire}}]->(IceCavern:area), 
-(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DesertColossus:area),
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DesertColossus:area)
+
+//Magic and Songs
+SET
 (spinSlash )-[:FOUND_IN {req: {bomb}}]->(DeathMountain:area),
 (DinsFire)-[:FOUND_IN {req: {bomb}}]->(HyruleCastle:area), 
 (FaroresWind)-[:FOUND_IN {req: {bomb}}]->(ZorasFountain:area), 
 (NayrusLove)-[:FOUND_IN {req: {bomb}}]->(DesertColossus:area),
-(ScarecrowSong)-[FOUND_IN]->(LakeHylia:area)
-----
+(ScarecrowSong)-[FOUND_IN]->(LakeHylia:area),
 
-+Actors+
+//ITEMS
+SET
+(PocketEgg)-[FOUND_IN]->(KakarikoVillage)
+----
+==cojiro KakarikoVillage+
+==oddMushroom LostWoods+
+==oddPotion KakarikoVillage+
+==poachersSaw LostWoods+
+==brokenGoronsSword GerudoValley+
+==prescription DeathMountain+
+==eyeballFrog ZorasDomain+
+==worldsFinestEyeDrops LakeHyliaLaboratory+
+==claimCheck DeathMountain+
+==BiggoronsSword DeathMountain+
+
+
+
+== Actors
 [source,cypher]
 ----
 CREATE ( Ganondorf:actor { type:'boss' }),
-( Link:actor { type:'playerCharacter' })
+( Link:actor { type:'playerCharacter' }),
+( Zelda:actor { type:'NPC' }),
+( Sheik:actor { type:'NPC' })
+
+SET
+(Ganondorf)-[KIDNAPS]->(Zelda),
+(Zelda)-[ALTER_EGO]->(Sheik),
+(Sheik)-[AIDS]->(Link),
+(Link)-[BATTLES]->(Ganondorf),
+(Link)-[RESCUES]->(Zelda)
 ----
 
 
