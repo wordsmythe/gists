@@ -101,7 +101,7 @@ CREATE
 	(KokiriSword:sword { name: 'Kokiri Sword' }),
 	(magicBeans:collectable { name: 'Magic Beans' }),
 	(pocketEgg:item { name: 'Pocket Egg'}),
-	(worldsFinestEyedrops:item { name: 'World\'s Finest Eyedrops' })
+	(worldsFinestEyedrops:item { name: 'World\'s Finest Eyedrops' }),
 	(cojiro:item { name:cojiro}),
 	(oddMushroom:item { name:oddMushroom}),
 	(oddPotion:item { name:oddPotion}),
