@@ -3,9 +3,9 @@
 :author: Erik Hanson
 :twitter: @erik_a_hanson
 
-https://github.com/wordsmythe/gists/edit/master/meta/OOTtest.adoc[Git adoc] - Fork and make changes here.
+https://github.com/wordsmythe/gists/edit/master/other/OcarinaMainChars.adoc[Git adoc] - Fork and make changes here.
 
-http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fmeta%2FOOTtest.adoc[Run it] on Neo4j's GraphGist page. 
+http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fother%2FOcarinaMainChars.adoc[Run it] on Neo4j's GraphGist page. 
 
 == Actors (Spoilers)
 
