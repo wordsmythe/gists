@@ -222,6 +222,7 @@ CREATE
 (Sheik)-[:AIDS]->(Link),
 (Link)-[:BATTLES]->(Ganondorf)
 ----
+
 //graph
 
 
