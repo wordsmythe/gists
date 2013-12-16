@@ -100,7 +100,7 @@ CREATE
 	(magicBeans:collectable { name: 'Magic Beans' }),
 	(pocketEgg:item { name: 'Pocket Egg'}),
 	(worldsFinestEyedrops:item { name: 'World\'s Finest Eyedrops' }),
-	(Cojiro:item { name:Cojiro}),
+	(Cojiro:item { name:'Cojiro'}),
 	(OddMushroom:item { name:'oddMushroom'}),
 	(OddPotion:item { name:'oddPotion'}),
 	(PoachersSaw:item { name:'poachersSaw'}),
