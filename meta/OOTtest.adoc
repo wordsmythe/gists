@@ -194,10 +194,10 @@ CREATE
 //Magic and Songs
 
 CREATE
-(spinSlash )-[:FOUND_IN {req: {'bombs'}}]->(FireTemple:area),
-(DinsFire)-[:FOUND_IN {req: {'bombs'}}]->(HyruleCastle:area), 
-(FaroresWind)-[:FOUND_IN {req: {'bombs'}}]->(ZorasFountain:area), 
-(NayrusLove)-[:FOUND_IN {req: {'bombs'}}]->(DesertColossus:area),
+(spinSlash )-[:FOUND_IN {req:'bombs'}]->(FireTemple:area),
+(DinsFire)-[:FOUND_IN {req:'bombs'}]->(HyruleCastle:area), 
+(FaroresWind)-[:FOUND_IN {req:'bombs'}]->(ZorasFountain:area), 
+(NayrusLove)-[:FOUND_IN {req:'bombs'}]->(DesertColossus:area),
 (ScarecrowSong)-[:FOUND_IN]->(LakeHylia:area)
 ----
 
