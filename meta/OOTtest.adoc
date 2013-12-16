@@ -142,7 +142,7 @@ CREATE ( SunsSong:song { name:"Sun's Song" }),
 
 CREATE
 (KokiriSword)-[:FOUND_IN]->(KokiriForest:area),
-(heartPieces)-[:FOUND_IN {req: {bomb}}]->(HyruleField:area),
+(heartPieces)-[:FOUND_IN {req: {bombs}}]->(HyruleField:area),
 (heartPieces)-[:FOUND_IN {req: {ironBoots}}]->(HyruleField:area),
 (heartPieces)-[:FOUND_IN {req: {fairyOcarina}}]->(LostWoods:area),
 (heartPieces)-[:FOUND_IN {req: {fairyOcarina}}]->(LostWoods:area),
@@ -159,7 +159,7 @@ CREATE
 (heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(KakarikoGraveyard:area),
 (heartPieces)-[:FOUND_IN {req: {adultLink}}]->(KakarikoGraveyard:area),
 (heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DeathMountainTrail:area),
-(heartPieces)-[:FOUND_IN {req: {bomb}}]->(GoronCity:area),
+(heartPieces)-[:FOUND_IN {req: {bombs}}]->(GoronCity:area),
 (heartPieces)-[:FOUND_IN]->(DeathMountainSummit:area),
 (heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DeathMountainSummit:area),
 (heartPieces)-[:FOUND_IN {req: {youngLink}}]->(ZorasRiver:area),
@@ -194,10 +194,10 @@ CREATE
 //Magic and Songs
 
 CREATE
-(spinSlash )-[:FOUND_IN {req: {bomb}}]->(FireTemple:area),
-(DinsFire)-[:FOUND_IN {req: {bomb}}]->(HyruleCastle:area), 
-(FaroresWind)-[:FOUND_IN {req: {bomb}}]->(ZorasFountain:area), 
-(NayrusLove)-[:FOUND_IN {req: {bomb}}]->(DesertColossus:area),
+(spinSlash )-[:FOUND_IN {req: {bombs}}]->(FireTemple:area),
+(DinsFire)-[:FOUND_IN {req: {bombs}}]->(HyruleCastle:area), 
+(FaroresWind)-[:FOUND_IN {req: {bombs}}]->(ZorasFountain:area), 
+(NayrusLove)-[:FOUND_IN {req: {bombs}}]->(DesertColossus:area),
 (ScarecrowSong)-[:FOUND_IN]->(LakeHylia:area)
 ----
 
