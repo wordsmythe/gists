@@ -57,7 +57,7 @@ CREATE
 
 //Area Relationships
 
-SET
+CREATE
 	(LonLonRanch:area)-[:CONNECTS_TO]->(hyruleField:area),
 	(LakeHylia:area)-[:CONNECTS_TO]->(HyruleField:area),
 	(DeathMountainTrail:area)-[:CONNECTS_TO]->(kakarikoVillage:area),
@@ -93,40 +93,34 @@ SET
 [source,cypher]
 ----
 CREATE
- (bombs:collecatble { name: 'bombs' }),
- (claimCheck:item { name: 'Claim Check' }),
+	(bombs:collecatble { name: 'bombs' }),
+	(claimCheck:item { name: 'Claim Check' }),
 	(DekuShield:shield { name: 'Deku Shield' }),
 	(heartPieces:collectable { name: 'Heart Pieces' }),
- (ironboots:item { name: 'Iron Boots' }),
+	(ironboots:item { name: 'Iron Boots' }),
 	(KokiriSword:sword { name: 'Kokiri Sword' }),
- {magicBeans:collectable { name: 'Magic Beans' }),
- {pocketEgg:item { name: 'Pocket Egg'}),
- (worldsFinestEyedrops:item { name: 'World\'s Finest Eyedrops' })
-----
- 
-==cojiro KakarikoVillage+
-==oddMushroom LostWoods+
-==oddPotion KakarikoVillage+
-==poachersSaw LostWoods+
-==brokenGoronsSword GerudoValley+
-==prescription DeathMountain+
-==eyeballFrog ZorasDomain+
-==BiggoronsSword DeathMountain+
-
+	(magicBeans:collectable { name: 'Magic Beans' }),
+	(pocketEgg:item { name: 'Pocket Egg'}),
+	(worldsFinestEyedrops:item { name: 'World\'s Finest Eyedrops' })
+	(cojiro:item { name:cojiro}),
+	(oddMushroom:item { name:oddMushroom}),
+	(oddPotion:item { name:oddPotion}),
+	(poachersSaw:item { name:poachersSaw}),
+	(brokenGoronsSword:item { name:brokenGoronsSword}),
+	(prescription:item { name:prescription}),
+	(eyeballFrog:item { name:eyeballFrog}),
+	(BiggoronsSword:item { name:BiggoronsSword})
 
 //magic
-[source,cypher]
-----
+
 CREATE
 ( spinSlash:magic { name: "Spin-Slash"}),
 ( DinsFire:magic { name: "Din's Fire"}),
 ( FaroresWind:magic { name: "Farore's Wind"}),
 ( NayrusLove:magic { name: "Naryu's Love"})
-----
-==masks
 
-/[source,cypher]
-----
+//masks
+
 CREATE
 ( keatonMask:mask { name: 'Keaton Mask'}),
 ( skullMask:mask { name: 'Skull Mask'}),
@@ -136,32 +130,18 @@ CREATE
 ( ZoraMask:mask { name: 'Zora Mask'}),
 ( GoronMask:mask { name: 'Goron Mask'}),
 ( GerudoMask:mask { name: 'Gerudo Mask'})
-----
 
 
-==Songs
-[source,cypher]
-----
+//Songs
+
 CREATE ( SunsSong:song { name:"Sun's Song" }),
 ( EponasSong:song { name:"Epona's Song" }),
 ( SariasSong:song { name:"Saria's Song" }),
 ( ZeldasLullabyeg:song { name:"Zelda's Lullabye" }),
 ( ScarecrowSong:song { name:'Scarecrow Song' })
-----
 
+//where found
 
-
-//graph
-//table
-
-
-
-
-
-
-
-[source,cypher]
-----
 CREATE
 (KokiriSword)-[:FOUND_IN]->(KokiriForest:area),
 (heartPieces)-[:FOUND_IN {req: {bomb}}]->(HyruleField:area),
@@ -186,9 +166,9 @@ CREATE
 (heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DeathMountainCrater:area),
 (heartPieces)-[:FOUND_IN {req: {youngLink}}]->(ZorasRiver:area),
 (heartPieces)-[:FOUND_IN {req: {youngLink}}]->(ZorasRiver:area),
-(heartPieces)-[:FOUND_IN {req: {youngLink},{ocarinaOfTime}}]->(ZorasRiver:area), 
-(heartPieces)-[:FOUND_IN {req: {youngLink},{ocarinaOfTime}}]->(ZorasRiver:area),
-(heartPieces)-[:FOUND_IN {req: {youngLink},{DekuStick}}]->(ZorasDomain:area),
+(heartPieces)-[:FOUND_IN {req:youngLink},{req:ocarinaOfTime}]->(ZorasRiver:area), 
+(heartPieces)-[:FOUND_IN {req:youngLink},{req:ocarinaOfTime}}]->(ZorasRiver:area),
+(heartPieces)-[:FOUND_IN {req:youngLink},{req:DekuStick}}]->(ZorasDomain:area),
 (heartPieces)-[:FOUND_IN {req: {adultLink}}]->(ZorasFountain:area),
 (heartPieces)-[:FOUND_IN {req: {adultLink},{ironBoots}}]->(ZorasFountain:area),
 (heartPieces)-[:FOUND_IN {req: {youngLink}{20rupees}}]->(LakeHylia:area),
@@ -199,30 +179,32 @@ CREATE
 (heartPieces)-[:FOUND_IN {req: {adultLink},{longshot|ocarinaOfTime}}]->(GerudoFortress:area), 
 (heartPieces)-[:FOUND_IN {req: {Epona},{adultLink}}]->(GerudoFortress:area), 
 (heartPieces)-[:FOUND_IN {req: {adultLink},{emptyBottle|blueFire}}]->(IceCavern:area), 
-(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DesertColossus:area)
+(heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DesertColossus:area),
+(PocketEgg)-[FOUND_IN]->(KakarikoVillage),
+(cojiro)-[FOUND_IN]->(pocketEgg),
+(oddMushroom)-[FOUND_IN]->(LostWoods),
+(oddPotion)-[FOUND_IN]->(KakarikoVillage),
+(poachersSaw)-[FOUND_IN]->(LostWoods),
+(brokenGoronsSword)-[FOUND_IN]->(GerudoValley),
+(prescription)-[FOUND_IN]->(DeathMountain),
+(eyeballFrog)-[FOUND_IN]->(ZorasDomain),
+(worldsFinestEyedrops)-[FOUND_IN]->(LakeHyliaLaboratory),
+(claimCheck)-[FOUND_IN]->(DeathMountain),
+(BiggoronsSword)-[FOUND_IN]->(DeathMountain)
 
 //Magic and Songs
-SET
+
+CREATE
 (spinSlash )-[:FOUND_IN {req: {bomb}}]->(DeathMountain:area),
 (DinsFire)-[:FOUND_IN {req: {bomb}}]->(HyruleCastle:area), 
 (FaroresWind)-[:FOUND_IN {req: {bomb}}]->(ZorasFountain:area), 
 (NayrusLove)-[:FOUND_IN {req: {bomb}}]->(DesertColossus:area),
 (ScarecrowSong)-[FOUND_IN]->(LakeHylia:area),
-
-//ITEMS
-SET
-(PocketEgg)-[FOUND_IN]->(KakarikoVillage)
 ----
-==cojiro KakarikoVillage+
-==oddMushroom LostWoods+
-==oddPotion KakarikoVillage+
-==poachersSaw LostWoods+
-==brokenGoronsSword GerudoValley+
-==prescription DeathMountain+
-==eyeballFrog ZorasDomain+
-==worldsFinestEyeDrops LakeHyliaLaboratory+
-==claimCheck DeathMountain+
-==BiggoronsSword DeathMountain+
+
+===Plenty more to add. Gold Skulltulas, monsters for each area, the rest of the buildings in areas, etc.
+
+
 
 
 
@@ -234,17 +216,16 @@ CREATE ( Ganondorf:actor { type:'boss' }),
 ( Zelda:actor { type:'NPC' }),
 ( Sheik:actor { type:'NPC' })
 
-SET
+CREATE
 (Ganondorf)-[KIDNAPS]->(Zelda),
 (Zelda)-[ALTER_EGO]->(Sheik),
 (Sheik)-[AIDS]->(Link),
-(Link)-[BATTLES]->(Ganondorf),
+(Link)-[BATTLES]-(Ganondorf),
 (Link)-[RESCUES]->(Zelda)
 ----
+//graph
 
 
-(GoldSkulltula)-[:FOUND_IN]->(), http=//www.gamefaqs.com/n64/197771-the-legend-of-zelda-ocarina-of-time/faqs/3514
 
 Each query has a green or red button to indicate if the query was successful or not.
 The console is set up after the executions, with an empty database, for the reader to play around with the queries.
-
