@@ -180,17 +180,17 @@ CREATE
 (heartPieces)-[:FOUND_IN {req: {Epona},{adultLink}}]->(GerudoFortress:area), 
 (heartPieces)-[:FOUND_IN {req: {adultLink},{emptyBottle|blueFire}}]->(IceCavern:area), 
 (heartPieces)-[:FOUND_IN {req: {magicBeans}}]->(DesertColossus:area),
-(PocketEgg)-[FOUND_IN]->(KakarikoVillage),
-(cojiro)-[FOUND_IN]->(pocketEgg),
-(oddMushroom)-[FOUND_IN]->(LostWoods),
-(oddPotion)-[FOUND_IN]->(KakarikoVillage),
-(poachersSaw)-[FOUND_IN]->(LostWoods),
-(brokenGoronsSword)-[FOUND_IN]->(GerudoValley),
-(prescription)-[FOUND_IN]->(DeathMountain),
-(eyeballFrog)-[FOUND_IN]->(ZorasDomain),
-(worldsFinestEyedrops)-[FOUND_IN]->(LakeHyliaLaboratory),
-(claimCheck)-[FOUND_IN]->(DeathMountain),
-(BiggoronsSword)-[FOUND_IN]->(DeathMountain)
+(PocketEgg)-[:FOUND_IN]->(KakarikoVillage),
+(cojiro)-[:FOUND_IN]->(pocketEgg),
+(oddMushroom)-[:FOUND_IN]->(LostWoods),
+(oddPotion)-[:FOUND_IN]->(KakarikoVillage),
+(poachersSaw)-[:FOUND_IN]->(LostWoods),
+(brokenGoronsSword)-[:FOUND_IN]->(GerudoValley),
+(prescription)-[:FOUND_IN]->(DeathMountain),
+(eyeballFrog)-[:FOUND_IN]->(ZorasDomain),
+(worldsFinestEyedrops)-[:FOUND_IN]->(LakeHyliaLaboratory),
+(claimCheck)-[:FOUND_IN]->(DeathMountain),
+(BiggoronsSword)-[:FOUND_IN]->(DeathMountain)
 
 //Magic and Songs
 
@@ -199,7 +199,7 @@ CREATE
 (DinsFire)-[:FOUND_IN {req: {bomb}}]->(HyruleCastle:area), 
 (FaroresWind)-[:FOUND_IN {req: {bomb}}]->(ZorasFountain:area), 
 (NayrusLove)-[:FOUND_IN {req: {bomb}}]->(DesertColossus:area),
-(ScarecrowSong)-[FOUND_IN]->(LakeHylia:area),
+(ScarecrowSong)-[:FOUND_IN]->(LakeHylia:area),
 ----
 
 ===Plenty more to add. Gold Skulltulas, monsters for each area, the rest of the buildings in areas, etc.
@@ -217,11 +217,11 @@ CREATE ( Ganondorf:actor { type:'boss' }),
 ( Sheik:actor { type:'NPC' })
 
 CREATE
-(Ganondorf)-[KIDNAPS]->(Zelda),
-(Zelda)-[ALTER_EGO]->(Sheik),
-(Sheik)-[AIDS]->(Link),
-(Link)-[BATTLES]-(Ganondorf),
-(Link)-[RESCUES]->(Zelda)
+(Ganondorf)-[:KIDNAPS]->(Zelda),
+(Zelda)-[:ALTER_EGO]->(Sheik),
+(Sheik)-[:AIDS]->(Link),
+(Link)-[:BATTLES]-(Ganondorf),
+(Link)-[:RESCUES]->(Zelda)
 ----
 //graph
 
