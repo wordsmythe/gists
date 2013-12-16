@@ -145,7 +145,7 @@ CREATE ( SunsSong:song { name:"Sun's Song" }),
 CREATE
 (KokiriSword)-[:FOUND_IN]->(KokiriForest:area),
 (heartPieces)-[:FOUND_IN {req: {bomb}}]->(HyruleField:area),
-(heartPieces)-[:FOUND_IN {req:bomb}{req: ironBoots}]->(HyruleField:area),
+(heartPieces)-[:FOUND_IN {req:bomb},{req: ironBoots}]->(HyruleField:area),
 (heartPieces)-[:FOUND_IN {req: {fairyOcarina}}]->(LostWoods:area),
 (heartPieces)-[:FOUND_IN {req: {fairyOcarina}}]->(LostWoods:area),
 (heartPieces)-[:FOUND_IN {req: {youngLink}}]->(HyruleMarket:area),
