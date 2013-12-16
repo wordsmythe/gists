@@ -1,0 +1,35 @@
+= GraphGist for Zelda Ocarina of Time
+
+:author: Erik Hanson
+:twitter: @erik_a_hanson
+
+https://github.com/wordsmythe/gists/edit/master/meta/OOTtest.adoc[Git adoc] - Fork and make changes here.
+
+http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fmeta%2FOOTtest.adoc[Run it] on Neo4j's GraphGist page. 
+
+== Actors (Spoilers)
+
+//hide
+
+//setup
+
+[source,cypher]
+----
+CREATE ( Ganondorf:actor { type:'boss' }),
+( Link:actor { type:'playerCharacter' }),
+( Zelda:actor { type:'NPC' }),
+( Sheik:actor { type:'NPC' })
+
+CREATE
+(Ganondorf)-[:KIDNAPS]->(Zelda),
+(Zelda)-[:ALTER_EGO]->(Sheik),
+(Sheik)-[:AIDS]->(Link),
+(Link)-[:BATTLES]->(Ganondorf)
+----
+
+//console
+
+
+
+Each query has a green or red button to indicate if the query was successful or not.
+The console is set up after the executions, with an empty database, for the reader to play around with the queries.
