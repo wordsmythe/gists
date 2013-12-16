@@ -17,7 +17,6 @@ http://gist.neo4j.org/?github-wordsmythe%2Fgists%2F%2Fmeta%2FOOTtest.adoc[Run it
 ----
 //Areas
 CREATE 
-	( DeathMountain:area { name:'Death Mountain' }),
 	( DeathMountainCrater:area { name:'Death Mountain Crater' }),
 	( DeathMountainTrail:area { name:'Death Mountain Trail' }),
 	( DekuTree:area { name:'Deku Tree' }),
@@ -195,7 +194,7 @@ CREATE
 //Magic and Songs
 
 CREATE
-(spinSlash )-[:FOUND_IN {req: {bomb}}]->(DeathMountain:area),
+(spinSlash )-[:FOUND_IN {req: {bomb}}]->(FireTemple:area),
 (DinsFire)-[:FOUND_IN {req: {bomb}}]->(HyruleCastle:area), 
 (FaroresWind)-[:FOUND_IN {req: {bomb}}]->(ZorasFountain:area), 
 (NayrusLove)-[:FOUND_IN {req: {bomb}}]->(DesertColossus:area),
