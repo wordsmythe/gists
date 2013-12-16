@@ -30,7 +30,7 @@ CREATE
 	( GerudoValley:area { name:'Gerudo Valley' }),
 	( GoronCity:area { name:'Goron City' }),
 	( HauntedWasteland:area { name:'Haunted Wasteland' }),
-	( HouseOfMido:area { name:'House of Mido' })
+	( HouseOfMido:area { name:'House of Mido' }),
 	( HyruleCastle:area { name:'Hyrule Castle' }),
 	( HyruleField:area { name:'Hyrule Field' }),
 	( HyruleMarket:area { name:'Hyrule Market' }),
