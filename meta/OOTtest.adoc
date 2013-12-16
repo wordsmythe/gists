@@ -101,13 +101,13 @@ CREATE
 	(pocketEgg:item { name: 'Pocket Egg'}),
 	(worldsFinestEyedrops:item { name: 'World\'s Finest Eyedrops' }),
 	(Cojiro:item { name:Cojiro}),
-	(OddMushroom:item { name:oddMushroom}),
-	(OddPotion:item { name:oddPotion}),
-	(PoachersSaw:item { name:poachersSaw}),
-	(BrokenGoronsSword:item { name:brokenGoronsSword}),
-	(prescription:item { name:prescription}),
-	(EyeballFrog:item { name:eyeballFrog}),
-	(BiggoronsSword:item { name:BiggoronsSword})
+	(OddMushroom:item { name:'oddMushroom'}),
+	(OddPotion:item { name:'oddPotion'}),
+	(PoachersSaw:item { name:'poachersSaw'}),
+	(BrokenGoronsSword:item { name:'brokenGoronsSword'}),
+	(prescription:item { name:'prescription'}),
+	(EyeballFrog:item { name:'eyeballFrog'}),
+	(BiggoronsSword:item { name:'BiggoronsSword'})
 
 //magic
 
