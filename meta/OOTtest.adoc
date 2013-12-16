@@ -199,7 +199,7 @@ CREATE
 (DinsFire)-[:FOUND_IN {req: {bomb}}]->(HyruleCastle:area), 
 (FaroresWind)-[:FOUND_IN {req: {bomb}}]->(ZorasFountain:area), 
 (NayrusLove)-[:FOUND_IN {req: {bomb}}]->(DesertColossus:area),
-(ScarecrowSong)-[:FOUND_IN]->(LakeHylia:area),
+(ScarecrowSong)-[:FOUND_IN]->(LakeHylia:area)
 ----
 
 
